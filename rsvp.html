@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>RSVP – Sophie & Gustav Wedding</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-light: #f5eee8;
+      --text-main: #2a1c10;
+      --accent-blue: #1f3cff;
+      --accent-brown: #6d4b3a;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-light);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .gradient-title {
+      background: linear-gradient(90deg, #020617, #1f3cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .rsvp-wrapper {
+      background: #f5eee8;
+      padding: 4rem 6vw;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .tiny-couple {
+      position: absolute;
+      right: 2rem;
+      bottom: 2rem;
+      max-width: 130px;
+    }
+
+    .tiny-couple img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .rsvp-title {
+      font-size: clamp(2.6rem, 4vw, 3.2rem);
+      letter-spacing: -0.04em;
+      margin-bottom: 2rem;
+    }
+
+    .rsvp-label {
+      display: block;
+      font-size: 1.1rem;
+      margin-bottom: 1.3rem;
+      color: #6d4b3a;
+    }
+
+    .rsvp-input {
+      display: block;
+      margin-top: 0.4rem;
+      width: 100%;
+      padding: 1rem;
+      border: none;
+      border-radius: 14px;
+      background: #ffffff;
+      font-family: inherit;
+      font-size: 1rem;
+      color: #2a1c10;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.07);
+    }
+
+    .rsvp-input:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px #1f3cff;
+    }
+
+    .rsvp-button {
+      margin-top: 2rem;
+      display: inline-block;
+      padding: 1.4rem 3.7rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      color: #fdfdfd;
+      background-image: linear-gradient(90deg, #020617, #1f3cff);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+    }
+
+    .rsvp-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .option-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.7rem;
+    }
+
+    .option-pill {
+      display: inline-block;
+      padding: 0.7rem 1.2rem;
+      background: #ffffff;
+      border-radius: 100px;
+      border: 2px solid rgba(0,0,0,0.08);
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.15s ease-out;
+      user-select: none;
+    }
+
+    .option-pill:hover {
+      border-color: #1f3cff;
+    }
+
+    .option-group input[type="radio"] {
+      display: none;
+    }
+
+    .option-group input[type="radio"]:checked + .option-pill {
+      background: #1f3cff;
+      color: white;
+      border-color: #1f3cff;
+    }
+
+    @media (max-width: 640px) {
+      .rsvp-wrapper {
+        padding: 3rem 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section class="rsvp-wrapper">
+  <h1 class="rsvp-title gradient-title">RSVP</h1>
+
+  <form
+    id="weddingForm"
+    action="https://hook.eu2.make.com/a4645sa3hf2xrj0ae6wks3xwk8hvu812"
+    method="post"
+  >
+
+    <!-- Name -->
+    <label class="rsvp-label">
+      What's your name?
+      <input type="text" name="name" class="rsvp-input" required>
+    </label>
+
+    <label class="rsvp-label">
+      What's your email?
+      <input type="email" name="email" class="rsvp-input" required>
+    </label>
+
+    <!-- Attending -->
+    <label class="rsvp-label">Will you be there?</label>
+    <div class="option-group">
+      <input type="radio" name="answer" value="Yes" id="attendYes" required>
+      <label for="attendYes" class="option-pill">Yes! I'll be there</label>
+
+      <input type="radio" name="answer" value="No" id="attendNo">
+      <label for="attendNo" class="option-pill">Sadly no</label>
+    </div>
+
+    <!-- Coach -->
+    <label class="rsvp-label">Will you need a seat on the coach?</label>
+    <div class="option-group">
+      <input type="radio" name="coach" value="There and Back" id="coachTB" required>
+      <label for="coachTB" class="option-pill">There and Back</label>
+
+      <input type="radio" name="coach" value="Only There" id="coachT">
+      <label for="coachT" class="option-pill">Only There</label>
+
+      <input type="radio" name="coach" value="Only Back" id="coachB">
+      <label for="coachB" class="option-pill">Only Back</label>
+
+      <input type="radio" name="coach" value="No" id="coachNo">
+      <label for="coachNo" class="option-pill">No</label>
+    </div>
+
+    <!-- Dietary -->
+    <label class="rsvp-label">
+      Dietary requirements?
+      <textarea name="diet" class="rsvp-input" rows="3"
+      placeholder="E.g. vegetarian, gluten-free…"></textarea>
+    </label>
+
+    <button type="submit" class="rsvp-button">
+      SEND RSVP
+    </button>
+
+  </form>
+
+  <div class="tiny-couple">
+    <img src="images/image_7.png" alt="Tiny couple">
+  </div>
+</section>
+
+</body>
+</html>

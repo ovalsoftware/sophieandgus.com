@@ -205,8 +205,10 @@
     .rsvp-button {
       margin-top: 3rem;
       display: inline-block;
-      padding: 1.2rem 3.5rem;
-      font-size: 1.4rem;
+      align-self: flex-start;
+      padding: 1.4rem 3.7rem;
+      font-size: 1.2rem;
+      font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       border-radius: 0;
@@ -234,17 +236,20 @@
     .faq-inner {
       max-width: 1100px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.2fr);
-      column-gap: 3rem;
-      row-gap: 2.5rem;
+      columns: 2;
+      column-gap: 5rem;
     }
 
     .faq-title {
-      grid-column: 1 / -1;
+      column-span: all;
       font-size: clamp(2.4rem, 3.6vw, 3.2rem);
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       letter-spacing: -0.05em;
+    }
+
+    .faq-block {
+      break-inside: avoid;
+      margin-bottom: 1.5rem;
     }
 
     .faq-title span.accent {
@@ -294,7 +299,6 @@
 
       .section-right {
         min-height: 55vh;
-        order: -1; /* show image first on mobile; remove if you prefer text first */
       }
 
       .section-body {
@@ -302,7 +306,7 @@
       }
 
       .faq-inner {
-        grid-template-columns: minmax(0, 1fr);
+        columns: 1;
       }
 
       .faq-image {
@@ -325,99 +329,6 @@
         padding: 3.5rem 1.8rem 4rem;
       }
     }
-
-    /* ------------- RSVP -----------*/
-
-    .rsvp-wrapper {
-  background: #f5eee8;
-  padding: 4rem 6vw;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.rsvp-title {
-  font-size: clamp(2.6rem, 4vw, 3.2rem);
-  letter-spacing: -0.04em;
-  margin-bottom: 2rem;
-}
-
-.rsvp-label {
-  display: block;
-  font-size: 1.1rem;
-  margin-bottom: 1.3rem;
-  color: #6d4b3a;
-}
-
-.rsvp-input {
-  display: block;
-  margin-top: 0.4rem;
-  width: 100%;
-  padding: 1rem;
-  border: none;
-  border-radius: 14px;
-  background: #ffffff;
-  font-family: inherit;
-  font-size: 1rem;
-  color: #2a1c10;
-  box-shadow: 0 0 0 2px rgba(0,0,0,0.07);
-}
-
-.rsvp-input:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px #1f3cff;
-}
-
-.rsvp-button {
-  margin-top: 2rem;
-  display: inline-block;
-  padding: 1.4rem 3.7rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  color: #fdfdfd;
-  background-image: linear-gradient(90deg, #020617, #1f3cff);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
-}
-
-.rsvp-button:hover {
-  transform: translateY(-2px);
-}
-
-.option-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 1.7rem;
-}
-
-.option-pill {
-  display: inline-block;
-  padding: 0.7rem 1.2rem;
-  background: #ffffff;
-  border-radius: 100px;
-  border: 2px solid rgba(0,0,0,0.08);
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.15s ease-out;
-  user-select: none;
-}
-
-.option-pill:hover {
-  border-color: #1f3cff;
-}
-
-.option-group input[type="radio"] {
-  display: none;
-}
-
-.option-group input[type="radio"]:checked + .option-pill {
-  background: #1f3cff;
-  color: white;
-  border-color: #1f3cff;
-}
   </style>
 </head>
 <body>
@@ -472,6 +383,23 @@
     <div class="section-right">
       <!-- red sunburst background & upside-down pose -->
       <img class="persons" src="images/image_2.png" alt="Weekend of fun couple">
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp" class="section">
+    <div class="section-left">
+      <h2 class="section-heading gradient-title">
+        Will you be there?
+      </h2>
+      <div class="section-body">
+        <p>Please let us know if you will be able to join us for our (hopefully) radical wedding by RSVP'ing before <strong>31st of January 2026</strong>.</p>
+      </div>
+
+      <a class="rsvp-button" href="rsvp.html">RSVP</a>
+    </div>
+    <div class="section-right">
+      <img class="persons" src="images/image_6.png" alt="RSVP pose">
     </div>
   </section>
 
@@ -535,24 +463,6 @@
     </div>
   </section>
 
-  <!-- RSVP -->
-  <section id="rsvp" class="section">
-    <div class="section-left">
-      <h2 class="section-heading gradient-title">
-        Will you be there?
-      </h2>
-      <div class="section-body">
-        <p>Please let us know if you will be able to join us for our (hopefully) radical wedding by RSVP’ing before <strong>31st of January 2026</strong>.</p>
-      </div>
-
-      <!-- change href to your real RSVP link / form -->
-      <a class="rsvp-button" href="#rsvp-form">RSVP</a>
-    </div>
-    <div class="section-right">
-      <img class="persons" src="images/image_6.png" alt="RSVP pose">
-    </div>
-  </section>
-
   <!-- FAQS -->
   <section id="faqs" class="faq-section">
     <div class="faq-inner">
@@ -564,30 +474,30 @@
       </div>
 
       <div class="faq-block">
-        <h3>Travel to and from venue without coach</h3>
-        <p>If you would rather make your own way to and from the venue we recommend pre-booking an Uber/taxi as public transport to the venue is limited.</p>
-        <p>The coach back will be leaving when the wedding finishes at 01:30. If you don’t have a 01:30 party in you, feel free to pre-book an <strong>Uber</strong> or a taxi through <strong>Taxi Stockholm</strong>. There is also parking available at the venue.</p>
-      </div>
-
-      <div class="faq-block">
         <h3>Dress Code</h3>
         <p>Formal Wedding Attire. Men – Suits. Women – Evening wear. Whilst the wedding will predominantly be inside, please bear in mind it is taking place in October in Sweden so might get a bit chilly, bringing a coat is advisable!</p>
-        <p>The coach will drop you about 300 meters from the venue so if you’re planning to wear your highest heels, maybe don’t.</p>
-      </div>
-
-      <div class="faq-block">
-        <h3>Friday Night Pub</h3>
-        <p>To kick-start the celebrations, we’re inviting everyone who wants to join us for a pub night on the Friday evening in Stockholm. This is of course not mandatory and sadly we won’t be able to provide food and drink for free during this evening. Location and timings to come.</p>
+        <p>The coach will drop you about 300 meters from the venue so if you're planning to wear your highest heels, maybe don't.</p>
       </div>
 
       <div class="faq-block">
         <h3>Coach Option</h3>
-        <p>We’ll have a coach leaving from <strong>Stockholm Centralstation</strong> to the wedding venue and back. Please let us know if you’d like a seat when you RSVP. More information about timings to come.</p>
+        <p>We'll have a coach leaving from <strong>Stockholm Centralstation</strong> to the wedding venue and back. Please let us know if you'd like a seat when you RSVP. More information about timings to come.</p>
+      </div>
+
+      <div class="faq-block">
+        <h3>Travel to and from venue without coach</h3>
+        <p>If you would rather make your own way to and from the venue we recommend pre-booking an Uber/taxi as public transport to the venue is limited.</p>
+        <p>The coach back will be leaving when the wedding finishes at 01:30. If you don't have a 01:30 party in you, feel free to pre-book an <strong>Uber</strong> or a taxi through <strong>Taxi Stockholm</strong>. There is also parking available at the venue.</p>
+      </div>
+
+      <div class="faq-block">
+        <h3>Friday Night Pub</h3>
+        <p>To kick-start the celebrations, we're inviting everyone who wants to join us for a pub night on the Friday evening in Stockholm. This is of course not mandatory and sadly we won't be able to provide food and drink for free during this evening. Location and timings to come.</p>
       </div>
 
       <div class="faq-block">
         <h3>Gifts</h3>
-        <p>You being there is the greatest gift of all and we are aware a lot of you will be travelling in from far and wide, so we don’t expect any gifts. But if you wish to give something, the best option would be a contribution toward our honeymoon.</p>
+        <p>You being there is the greatest gift of all and we are aware a lot of you will be travelling in from far and wide, so we don't expect any gifts. But if you wish to give something, the best option would be a contribution toward our honeymoon.</p>
       </div>
     </div>
 
@@ -596,66 +506,6 @@
       <img src="images/image_7.png" alt="Tiny couple">
     </div>
   </section>
-
-<section id="rsvp-form" class="rsvp-wrapper">
-  <h2 class="rsvp-title gradient-title">RSVP</h2>
-
-  <form
-    id="weddingForm"
-    action="https://hook.eu2.make.com/a4645sa3hf2xrj0ae6wks3xwk8hvu812"
-    method="post"
-  >
-
-    <!-- Name -->
-    <label class="rsvp-label">
-      What’s your name?
-      <input type="text" name="name" class="rsvp-input" required>
-    </label>
-
-    <label class="rsvp-label">
-      What's your email?
-      <input type="email" name="email" class="rsvp-input" required>
-    </label>
-
-    <!-- Attending -->
-    <label class="rsvp-label">Will you be there?</label>
-    <div class="option-group">
-      <input type="radio" name="answer" value="Yes" id="attendYes" required>
-      <label for="attendYes" class="option-pill">Yes! I'll be there</label>
-
-      <input type="radio" name="answer" value="No" id="attendNo">
-      <label for="attendNo" class="option-pill">Sadly no</label>
-    </div>
-
-    <!-- Coach -->
-    <label class="rsvp-label">Will you need a seat on the coach?</label>
-    <div class="option-group">
-      <input type="radio" name="coach" value="There and Back" id="coachTB" required>
-      <label for="coachTB" class="option-pill">There and Back</label>
-
-      <input type="radio" name="coach" value="Only There" id="coachT">
-      <label for="coachT" class="option-pill">Only There</label>
-
-      <input type="radio" name="coach" value="Only Back" id="coachB">
-      <label for="coachB" class="option-pill">Only Back</label>
-
-      <input type="radio" name="coach" value="No" id="coachNo">
-      <label for="coachNo" class="option-pill">No</label>
-    </div>
-
-    <!-- Dietary -->
-    <label class="rsvp-label">
-      Dietary requirements?
-      <textarea name="diet" class="rsvp-input" rows="3"
-      placeholder="E.g. vegetarian, gluten-free…"></textarea>
-    </label>
-
-    <button type="submit" class="rsvp-button">
-      SEND RSVP
-    </button>
-
-  </form>
-</section>
 
 </main>
 </body>
