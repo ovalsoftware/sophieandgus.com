@@ -90,7 +90,9 @@
 
     .rsvp-button {
       margin-top: 2rem;
-      display: inline-block;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
       padding: 1.4rem 3.7rem;
       font-size: 1.2rem;
       font-weight: 600;
@@ -143,6 +145,10 @@
     @media (max-width: 640px) {
       .rsvp-wrapper {
         padding: 3rem 1.8rem;
+      }
+
+      .tiny-couple {
+        display: none;
       }
     }
   </style>
@@ -203,7 +209,7 @@
     </label>
 
     <button type="submit" class="rsvp-button">
-      SEND RSVP
+      SUBMIT
     </button>
 
   </form>
