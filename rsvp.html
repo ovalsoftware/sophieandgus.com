@@ -13,6 +13,9 @@
   <meta property="og:url" content="https://sophieandgus.com/rsvp.html">
   <meta property="og:type" content="website">
 
+  <!-- Prevent search engine indexing -->
+  <meta name="robots" content="noindex, nofollow">
+
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -225,6 +228,75 @@
     <img src="images/image_7.png" alt="Tiny couple">
   </div>
 </section>
+
+<script>
+  // Prevent double submissions
+  let isSubmitting = false;
+
+  document.getElementById('weddingForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Block if already submitting
+    if (isSubmitting) return;
+
+    const form = e.target;
+    const email = form.email.value.trim();
+    const name = form.name.value.trim();
+    const answer = form.answer.value;
+    const coach = form.coach.value;
+
+    // Validate all required fields
+    if (!name) {
+      alert('Please fill in your name.');
+      return;
+    }
+
+    if (!email) {
+      alert('Please fill in your email.');
+      return;
+    }
+
+    // Basic email format check
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    if (!answer) {
+      alert('Please let us know if you will be there.');
+      return;
+    }
+
+    if (!coach) {
+      alert('Please select a coach option.');
+      return;
+    }
+
+    // Mark as submitting and disable button
+    isSubmitting = true;
+    const button = form.querySelector('button[type="submit"]');
+    button.disabled = true;
+    button.textContent = 'SENDING...';
+
+    const formData = new FormData(form);
+
+    try {
+      await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      });
+
+      // Redirect to our own thank you page - prevents refresh resubmission
+      window.location.href = 'thank-you.html';
+    } catch (error) {
+      isSubmitting = false;
+      button.disabled = false;
+      button.textContent = 'SUBMIT';
+      alert('Something went wrong. Please try again.');
+    }
+  });
+</script>
 
 </body>
 </html>
